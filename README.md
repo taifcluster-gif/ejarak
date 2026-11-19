@@ -1,4 +1,4 @@
-# إدارة العمارة (Building Manager)
+# دفتر عمارتي (My Building Ledger)
 
 تطبيق عربي / إنجليزي لمالك عمارة يتابع الشقق والمستأجرين والعقود والدفعات والعدادات. يشتغل بدون إنترنت، وبياناته محفوظة على جهاز المستخدم. يعمل كموقع PWA وكتطبيق أندرويد (Capacitor) مع تذكيرات مجدولة.
 
@@ -11,12 +11,12 @@
 
 1. ارفع المشروع على مستودع GitHub (نفس المستودع تبع Pages ينفع).
 2. روح تبويب **Actions** ← **Build Android APK** ← **Run workflow** (يشتغل تلقائياً عند كل push على main).
-3. بعد دقائق نزّل الملف من **Artifacts** (`building-manager-debug-apk`) وثبّته على الجوال (فعّل "التثبيت من مصادر غير معروفة").
+3. بعد دقائق نزّل الملف من **Artifacts** (`daftar-amarati-debug-apk`) وثبّته على الجوال (فعّل "التثبيت من مصادر غير معروفة").
 
 الـworkflow يسوي: `npm install` ← اختبارات المنطق ← نسخ ملفات الويب إلى `www` ← `cap add android` ← توليد أيقونات التطبيق من `assets/` ← أيقونة الإشعار وتعديل المانيفست ← `cap sync` ← `gradlew assembleDebug`.
 
 ### قبل النشر على Google Play
-- **غيّر `appId`** في `capacitor.config.json` (الحالي `com.usefultech.buildingmanager`). بعد أول رفع على Play ما ينغير.
+- **غيّر `appId`** في `capacitor.config.json` (الحالي `com.usefultech.daftaramarati`). بعد أول رفع على Play ما ينغير.
 - ملف الـAPK أعلاه تجريبي (debug). للنشر تحتاج AAB موقّع (release) بمفتاح توقيع تحتفظ فيه: أضف الـkeystore كـSecrets في GitHub وخطوة `bundleRelease` في الـworkflow.
 - رقم الإصدار (`versionCode` و`versionName`) يرتفع يدوياً مع كل نسخة جديدة.
 

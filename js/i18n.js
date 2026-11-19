@@ -7,7 +7,7 @@
 
   const T = {
     ar: {
-      app_name: 'إدارة العمارة',
+      app_name: 'دفتر عمارتي',
       nav_home: 'الرئيسية', nav_units: 'الوحدات', nav_pay: 'الدفعات', nav_bills: 'الفواتير', nav_more: 'المزيد',
       close: 'إغلاق', cancel: 'إلغاء', save: 'حفظ', saved: 'تم الحفظ', delete: 'حذف', edit: 'تعديل', add: 'إضافة', back: 'رجوع',
       yes: 'نعم', no: 'لا', yes_delete: 'نعم، احذف', yes_replace: 'نعم، استبدل', never: 'لم تؤخذ بعد',
@@ -126,7 +126,7 @@
       n_meters: 'وقت تسجيل قراءات عدادات الموية والكهرباء لهذا الشهر',
     },
     en: {
-      app_name: 'Building Manager',
+      app_name: 'My Building Ledger',
       nav_home: 'Home', nav_units: 'Units', nav_pay: 'Payments', nav_bills: 'Bills', nav_more: 'More',
       close: 'Close', cancel: 'Cancel', save: 'Save', saved: 'Saved', delete: 'Delete', edit: 'Edit', add: 'Add', back: 'Back',
       yes: 'Yes', no: 'No', yes_delete: 'Yes, delete', yes_replace: 'Yes, replace', never: 'Never',

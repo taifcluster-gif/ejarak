@@ -2,61 +2,55 @@ name: Build Android APK
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [main]
   workflow_dispatch:
 
 jobs:
-  build:
+  apk:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: 'npm'
+          node-version: 22
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
+      - uses: actions/setup-java@v4
         with:
-          python-version: '3.11'
-
-      - name: Setup Java
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'temurin'
-          java-version: '21'
+          distribution: temurin
+          java-version: 21
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install --no-audit --no-fund
 
-      - name: Run unit tests
+      - name: Test logic
         run: npm test
 
-      - name: Build web bundle
+      - name: Copy web files to www
         run: npm run build:web
 
       - name: Add Android platform
         run: npx cap add android
 
-      - name: Generate Android assets
-        run: npm run assets
+      - name: Generate launcher icons
+        run: npx capacitor-assets generate --android
 
-      - name: Patch AndroidManifest.xml
-        run: python scripts/patch-manifest.py
+      - name: Notification icon and manifest tweaks
+        run: |
+          cp -r native-res/. android/app/src/main/res/
+          python3 scripts/patch-manifest.py
 
-      - name: Sync Capacitor Android
+      - name: Sync Capacitor
         run: npx cap sync android
 
-      - name: Build Debug APK
-        working-directory: android
-        run: chmod +x gradlew && ./gradlew assembleDebug
+      - uses: gradle/actions/setup-gradle@v4
 
-      - name: Upload APK artifact
-        uses: actions/upload-artifact@v4
+      - name: Build debug APK
+        working-directory: android
+        run: ./gradlew assembleDebug
+
+      - uses: actions/upload-artifact@v4
         with:
-          name: ejarak-debug-apk
+          name: daftar-amarati-debug-apk
           path: android/app/build/outputs/apk/debug/app-debug.apk
+          if-no-files-found: error

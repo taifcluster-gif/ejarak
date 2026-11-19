@@ -1,7 +1,7 @@
 /* يعمل التطبيق بدون إنترنت: نخزّن ملفاته أول مرة ونفتحه منها.
    غيّر رقم VERSION كل ما عدّلت أي ملف عشان يتحدث عند المستخدمين. */
-const VERSION = 'v2';
-const CACHE = 'rental-app-' + VERSION;
+const VERSION = 'v3';
+const CACHE = 'daftar-amarati-' + VERSION;
 const FILES = [
   './', './index.html', './manifest.webmanifest',
   './css/style.css',
