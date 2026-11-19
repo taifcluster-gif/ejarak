@@ -1,0 +1,24 @@
+{
+  "name": "rental-building-manager",
+  "version": "1.0.0",
+  "private": true,
+  "description": "تطبيق متابعة شقق الإيجار — PWA + Capacitor Android",
+  "scripts": {
+    "build:web": "node scripts/build-web.js",
+    "assets": "capacitor-assets generate --android",
+    "cap:sync": "npm run build:web && cap sync android",
+    "test": "node tests/logic.test.js"
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.6.2",
+    "@capacitor/app": "^8.1.2",
+    "@capacitor/core": "^8.6.2",
+    "@capacitor/filesystem": "^8.1.5",
+    "@capacitor/local-notifications": "^8.3.1",
+    "@capacitor/share": "^8.0.3"
+  },
+  "devDependencies": {
+    "@capacitor/assets": "^4.0.0",
+    "@capacitor/cli": "^8.6.2"
+  }
+}

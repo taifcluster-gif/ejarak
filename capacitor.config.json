@@ -1,0 +1,19 @@
+{
+  "appId": "com.usefultech.buildingmanager",
+  "appName": "عمارتي",
+  "webDir": "www",
+  "backgroundColor": "#F3F6F4",
+  "android": {
+    "allowMixedContent": false
+  },
+  "plugins": {
+    "LocalNotifications": {
+      "smallIcon": "ic_stat_notify",
+      "iconColor": "#3F7D75"
+    },
+    "SystemBars": {
+      "insetsHandling": "native",
+      "style": "DARK"
+    }
+  }
+}
